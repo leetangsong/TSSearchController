@@ -14,18 +14,18 @@ fileprivate var kNaviBarStatusBarHeight: CGFloat{
 fileprivate var kiPhoneX: Bool{
     return UIScreen.main.bounds.size.height == 812 && UIScreen.main.bounds.size.width == 375
 }
-@objc protocol TSSearchControllerDelegate:NSObjectProtocol {
+@objc public protocol TSSearchControllerDelegate:NSObjectProtocol {
     @objc optional func willPresentSearchController(searchController: TSSearchController)
     @objc optional func didPresentSearchController(searchController: TSSearchController)
     @objc optional func willDismissSearchController(searchController: TSSearchController)
     @objc optional func didDismissSearchController(searchController: TSSearchController)
 }
-protocol TSSearchControllerhResultsUpdating: NSObjectProtocol {
+public protocol TSSearchControllerhResultsUpdating: NSObjectProtocol {
     func updateSearchResultsForSearchController(searchController: TSSearchController)
 }
-class TSSearchController: UIViewController {
-    var hidesNavigationBarDuringPresentation: Bool = true
-    lazy var searchBar: TSSearchBar = {
+open class TSSearchController: UIViewController {
+    public var hidesNavigationBarDuringPresentation: Bool = true
+    public lazy var searchBar: TSSearchBar = {
         let temp = TSSearchBar()
         temp.frame = CGRect.init(x: 0, y: kNaviBarStatusBarHeight-44, width: kScreenW, height: 44)
         temp.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(tapSearchBarAction)))
@@ -42,9 +42,9 @@ class TSSearchController: UIViewController {
     private var beginFrame: CGRect?
     private var frameInSuperView:CGRect?
     private var searchSuperView: UIView?
-    weak var delegate: TSSearchControllerDelegate?
-    weak var searchResultsUpdater: TSSearchControllerhResultsUpdating?
-    var searchResultsController: UIViewController?
+    public weak var delegate: TSSearchControllerDelegate?
+    public weak var searchResultsUpdater: TSSearchControllerhResultsUpdating?
+    public var searchResultsController: UIViewController?
     var searchContentView: UIView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: kScreenW, height: kNaviBarStatusBarHeight))
     lazy var bgView: UIView = {
         
@@ -55,13 +55,13 @@ class TSSearchController: UIViewController {
         effectView.contentView.addSubview(temp)
         return effectView
     }()
-    init(searchResultsController: UIViewController?) {
+    public init(searchResultsController: UIViewController?) {
         super.init(nibName: nil, bundle: nil)
         
         self.searchResultsController = searchResultsController
     }
     var navi: UINavigationController?
-    override func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(searchContentView)
         view.addSubview(bgView)
@@ -135,19 +135,16 @@ class TSSearchController: UIViewController {
         }
     }
     
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    override open func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         
     }
     deinit {
         self.searchBar.removeObserver(self, forKeyPath: "text")
     }
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+   
     
 }
 

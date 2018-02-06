@@ -30,7 +30,7 @@ open class TSSearchBar: UIView {
     open weak var animationer: TSSearchBarAnimationer?
     open weak var delegate: TSSearchBarDelegate?
     private lazy var backgroundImageView: UIImageView = UIImageView()
-    lazy var textFieldContentView: UIView = UIView.init(frame: CGRect.init(x: 8, y: 0, width: frame.width-16, height: 35))
+    lazy var textFieldContentView: UIView = UIView.init(frame: CGRect.init(x: 8, y: 0, width: self.frame.width-16, height: 35))
     private lazy var textField: TSSearchTextField = {
         let temp = TSSearchTextField()
         temp.frame = CGRect.init(x: 0, y: 0, width: self.textFieldContentView.frame.width, height: 35)
@@ -106,7 +106,7 @@ open class TSSearchBar: UIView {
     open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         setupTextContentFrame()
     }
-    private func setupTextContentFrame(){
+    fileprivate func setupTextContentFrame(){
         if leftView != nil{
             textFieldContentView.addSubview(leftView!)
         }
