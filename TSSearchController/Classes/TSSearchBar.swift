@@ -24,14 +24,14 @@ let kScreenH = UIScreen.main.bounds.size.height
     @objc optional func searchBarDidBeginEditingAnimation(searchBar: TSSearchBar)
     @objc optional func searchBarDidEndEditingAnimation(searchBar: TSSearchBar)
 }
-open class TSSearchBar: UIView {
+@objcMembers open class TSSearchBar: UIView {
     open var placeholder: String?
     open var text: String?
     open weak var animationer: TSSearchBarAnimationer?
     open weak var delegate: TSSearchBarDelegate?
     private lazy var backgroundImageView: UIImageView = UIImageView()
     lazy var textFieldContentView: UIView = UIView.init(frame: CGRect.init(x: 8, y: 0, width: self.frame.size.width-16, height: 35))
-    private lazy var textField: TSSearchTextField = {
+    lazy var textField: TSSearchTextField = {
         let temp = TSSearchTextField()
         temp.frame = CGRect.init(x: 0, y: 0, width: self.textFieldContentView.frame.size.width, height: 35)
         temp.center = CGPoint.init(x: self.frame.width/2, y: self.frame.height/2)
@@ -182,6 +182,9 @@ open class TSSearchBar: UIView {
         self.textField.placeholder = self.placeholder
         cancelButton?.center = CGPoint.init(x: cancelButton!.center.x, y: self.frame.height/2)
     }
+    
+    
+    
     deinit {
         self.textFieldContentView.removeObserver(self, forKeyPath: "frame")
     }
