@@ -43,6 +43,7 @@ let kScreenH = UIScreen.main.bounds.size.height
         temp.backgroundColor = .white
         temp.delegate = self
         temp.returnKeyType = .search
+        temp.enablesReturnKeyAutomatically = true
         temp.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         return temp
     }()
@@ -174,6 +175,7 @@ let kScreenH = UIScreen.main.bounds.size.height
         cancelAction?()
     }
     @objc func textFieldDidChange(){
+        
         delegate?.searchBar?(searchBar: self, textDidChange: self.textField.text ?? "")
         setupTextContentFrame()
         self.text = self.textField.text
