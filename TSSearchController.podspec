@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'TSSearchController'
-  s.version          = '0.0.2'
+  s.version          = '0.0.3'
   s.summary          = 'custom search with TSSearchController.'
 
 # This description is used to generate tags and improve search results.
