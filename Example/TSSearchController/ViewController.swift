@@ -10,12 +10,11 @@ import UIKit
 import TSSearchController
 class ViewController: UIViewController {
 
+    var searchController = TSSearchController.init(searchResultsController: nil)
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(TSSearchController.init(searchResultsController: nil).searchBar)
-        let bar = TSSearchController.init(searchResultsController: nil).searchBar
+        view.addSubview(searchController.searchBar)
         
-        print(bar.value(forKeyPath: "textField"))
         
         // Do any additional setup after loading the view, typically from a nib.
     }

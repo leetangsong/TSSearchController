@@ -29,6 +29,7 @@ let kScreenH = UIScreen.main.bounds.size.height
     open var text: String?
     open weak var animationer: TSSearchBarAnimationer?
     open weak var delegate: TSSearchBarDelegate?
+    open var barTintColor: UIColor = TS_RGB(230, 230, 230)
     private lazy var backgroundImageView: UIImageView = UIImageView()
     lazy var textFieldContentView: UIView = UIView.init(frame: CGRect.init(x: 8, y: 0, width: self.frame.size.width-16, height: 35))
     lazy var textField: TSSearchTextField = {

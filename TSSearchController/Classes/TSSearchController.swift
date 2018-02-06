@@ -105,6 +105,7 @@ open class TSSearchController: UIViewController {
                 self.searchBar.frame = CGRect.init(x: 0, y: kStatusBarHeight, width: kScreenW, height: 55)
                 self.searchBar.textFieldContentView.ts_width = self.searchBar.frame.width-16-50
                 self.searchBar.cancelButton?.ts_x = kScreenW-50
+                self.searchContentView.backgroundColor = self.searchBar.barTintColor
             }
             self.delegate?.didPresentSearchController?(searchController: self)
         })
