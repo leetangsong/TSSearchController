@@ -95,11 +95,12 @@ open class TSSearchBar: UIView {
         cancel.addTarget(self, action: #selector(cancelButtonClick), for: .touchUpInside)
         addSubview(cancel)
         self.cancelButton = cancel
-        let imageView = UIImageView.init(image: #imageLiteral(resourceName: "enlarge"))
+        let imageView = UIImageView.init(image: UIImage.image(name: "file_enlarge"))
         imageView.frame = CGRect.init(x: 0, y: 0, width: 30, height: 20)
         imageView.contentMode = .scaleAspectFit
         self.leftView = imageView
         self.leftViewMode = .always
+        
         textFieldContentView.addObserver(self, forKeyPath: "frame", options: .new, context: nil)
         
     }

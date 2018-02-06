@@ -1,6 +1,6 @@
 {
   "name": "TSSearchController",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "summary": "custom search with TSSearchController.",
   "description": "custom search with TSSearchController.....",
   "homepage": "https://github.com/leetangsong/TSSearchController",
@@ -13,10 +13,15 @@
   },
   "source": {
     "git": "https://github.com/leetangsong/TSSearchController.git",
-    "tag": "0.0.3"
+    "tag": "0.0.4"
   },
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "TSSearchController/Classes/**/*"
+  "source_files": "TSSearchController/Classes/**/*",
+  "resource_bundles": {
+    "TSSearchController": [
+      "TSSearchController/Assets/*.png"
+    ]
+  }
 }

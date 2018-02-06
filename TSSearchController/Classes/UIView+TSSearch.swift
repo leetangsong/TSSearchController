@@ -56,6 +56,7 @@ extension UIView {
     
     var ts_height : CGFloat {
         get{
+            
             return  self.frame.size.height
         }
         set{
@@ -65,4 +66,10 @@ extension UIView {
         }
     }
     
+}
+
+extension UIImage{
+    static func image(name: String)->UIImage?{
+       return  UIImage.init(named: "TSSearchController.bundle/\(name)", in: Bundle.init(for: NSClassFromString("TSSearchController.TSSearchController")!), compatibleWith: nil)
+    }
 }

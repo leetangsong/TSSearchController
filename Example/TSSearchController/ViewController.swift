@@ -7,11 +7,12 @@
 //
 
 import UIKit
-
+import TSSearchController
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addSubview(TSSearchController.init(searchResultsController: nil).searchBar)
         // Do any additional setup after loading the view, typically from a nib.
     }
 
