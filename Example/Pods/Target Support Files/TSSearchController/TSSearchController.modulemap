@@ -1,0 +1,6 @@
+framework module TSSearchController {
+  umbrella header "TSSearchController-umbrella.h"
+
+  export *
+  module * { export * }
+}

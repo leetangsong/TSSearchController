@@ -1,0 +1,6 @@
+framework module Pods_TSSearchController_Tests {
+  umbrella header "Pods-TSSearchController_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
