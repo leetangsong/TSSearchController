@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'TSSearchController'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of TSSearchController.'
+  s.version          = '0.0.1'
+  s.summary          = 'custom search with TSSearchController.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-custom TSSearchController 
+custom search with TSSearchController.....
                        DESC
 
   s.homepage         = 'https://github.com/leetangsong/TSSearchController'
