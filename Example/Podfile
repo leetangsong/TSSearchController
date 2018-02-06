@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'TSSearchController_Example' do
+  pod 'TSSearchController', :path => '../'
+
+  target 'TSSearchController_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
