@@ -68,6 +68,7 @@ open class TSSearchController: UIViewController {
         self.searchResultsController?.view.frame = bgView.bounds
         if let vc = searchResultsController {
             bgView.contentView.addSubview(vc.view)
+            vc.view.backgroundColor = .clear
         }
         // Do any additional setup after loading the view.
     }
