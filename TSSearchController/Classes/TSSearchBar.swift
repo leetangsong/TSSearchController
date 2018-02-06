@@ -45,9 +45,9 @@ open class TSSearchBar: UIView {
         temp.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         return temp
     }()
-    var leftViewMode: UITextFieldViewMode = .never
-    var RightViewMode: UITextFieldViewMode = .never
-    var rightView: UIView?{
+    open var leftViewMode: UITextFieldViewMode = .never
+    open var RightViewMode: UITextFieldViewMode = .never
+    open var rightView: UIView?{
         willSet{
             self.rightView?.removeFromSuperview()
         }
@@ -55,7 +55,7 @@ open class TSSearchBar: UIView {
             self.setupTextContentFrame()
         }
     }
-    var leftView: UIView?{
+    open var leftView: UIView?{
         willSet{
             self.leftView?.removeFromSuperview()
         }
@@ -65,8 +65,8 @@ open class TSSearchBar: UIView {
     }
     
     private(set) var cancelButton: UIButton?
-    var searchReturnAction: ((_ text: String?)->Void)?
-    var cancelAction: (()->Void)?
+    open var searchReturnAction: ((_ text: String?)->Void)?
+    open var cancelAction: (()->Void)?
     var isEditing = false{
         didSet{
             self.cancelButton?.isHidden = !isEditing
