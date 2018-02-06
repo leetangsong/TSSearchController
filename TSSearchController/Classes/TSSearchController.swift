@@ -11,6 +11,9 @@ import UIKit
 fileprivate var kNaviBarStatusBarHeight: CGFloat{
     return kiPhoneX ? 88:64
 }
+fileprivate var kStatusBarHeight: CGFloat{
+    return kiPhoneX ? 44:20
+}
 fileprivate var kiPhoneX: Bool{
     return UIScreen.main.bounds.size.height == 812 && UIScreen.main.bounds.size.width == 375
 }
@@ -27,7 +30,7 @@ open class TSSearchController: UIViewController {
     public var hidesNavigationBarDuringPresentation: Bool = true
     public lazy var searchBar: TSSearchBar = {
         let temp = TSSearchBar()
-        temp.frame = CGRect.init(x: 0, y: kNaviBarStatusBarHeight-44, width: kScreenW, height: 44)
+        temp.frame = CGRect.init(x: 0, y: kStatusBarHeight+55, width: kScreenW, height: 55)
         temp.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(tapSearchBarAction)))
         temp.cancelAction = {[weak self] in
             self?.endSearch()
@@ -45,11 +48,11 @@ open class TSSearchController: UIViewController {
     public weak var delegate: TSSearchControllerDelegate?
     public weak var searchResultsUpdater: TSSearchControllerhResultsUpdating?
     public var searchResultsController: UIViewController?
-    var searchContentView: UIView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: kScreenW, height: kNaviBarStatusBarHeight))
+    var searchContentView: UIView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: kScreenW, height: kStatusBarHeight+55))
     lazy var bgView: UIVisualEffectView = {
         
         let effectView = UIVisualEffectView.init(effect: UIBlurEffect.init(style: .light))
-        effectView.frame = CGRect.init(x: 0, y: kNaviBarStatusBarHeight, width: kScreenW, height: kScreenH-kNaviBarStatusBarHeight)
+        effectView.frame = CGRect.init(x: 0, y: kStatusBarHeight+55, width: kScreenW, height: kScreenH-(kStatusBarHeight+55))
         let temp = UIView.init(frame: effectView.bounds)
         temp.backgroundColor = UIColor.white.withAlphaComponent(0.1)
         effectView.contentView.addSubview(temp)
@@ -99,7 +102,7 @@ open class TSSearchController: UIViewController {
         UIView.animate(withDuration: 0.25, animations: {
             self.bgView.alpha = 1
             if self.hidesNavigationBarDuringPresentation{
-                self.searchBar.frame = CGRect.init(x: 0, y: kNaviBarStatusBarHeight-44, width: kScreenW, height: 44)
+                self.searchBar.frame = CGRect.init(x: 0, y: kStatusBarHeight, width: kScreenW, height: 55)
                 self.searchBar.textFieldContentView.ts_width = self.searchBar.frame.width-16-50
                 self.searchBar.cancelButton?.ts_x = kScreenW-50
             }
