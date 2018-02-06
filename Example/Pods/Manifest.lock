@@ -1,5 +1,5 @@
 PODS:
-  - TSSearchController (0.1.0)
+  - TSSearchController (0.0.3)
 
 DEPENDENCIES:
   - TSSearchController (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  TSSearchController: 04114823c493c8e05e4f9460e316613e1cbb0937
+  TSSearchController: 63e5ed8837b77d29ae7b0579952160bcc5804eb4
 
 PODFILE CHECKSUM: d19410636ff2a7158536fb3f5639431d6438f93e
 
