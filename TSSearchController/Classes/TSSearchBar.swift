@@ -118,8 +118,9 @@ let kScreenH = UIScreen.main.bounds.size.height
         }
         textField.frame = textFieldContentView.bounds
         leftView?.ts_x = 0
-        leftView?.center = CGPoint.init(x: leftView?.center.x ?? 0, y: textFieldContentView.frame.height/2)
         rightView?.ts_x = textFieldContentView.frame.width-(rightView?.frame.width ?? 0)
+        leftView?.center = CGPoint.init(x: leftView?.center.x ?? 0, y: textFieldContentView.frame.height/2)
+        rightView?.center = CGPoint.init(x: rightView?.center.x ?? 0, y: textFieldContentView.frame.height/2)
        
         switch leftViewMode {
         case .always:
