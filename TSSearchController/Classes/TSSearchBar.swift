@@ -48,7 +48,7 @@ let kScreenH = UIScreen.main.bounds.size.height
         return temp
     }()
     open var leftViewMode: UITextFieldViewMode = .never
-    open var RightViewMode: UITextFieldViewMode = .never
+    open var rightViewMode: UITextFieldViewMode = .never
     open var rightView: UIView?{
         willSet{
             self.rightView?.removeFromSuperview()
@@ -136,7 +136,7 @@ let kScreenH = UIScreen.main.bounds.size.height
             break
         }
         
-        switch RightViewMode {
+        switch rightViewMode {
         case .always:
             rightView?.isHidden = false
             break
