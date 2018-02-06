@@ -8,14 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		3EF589DD6D6EA9441647E47519D2311A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		6EBE84676B7F074CA423A4EBC56D400D /* TSSearchController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4565D201860842D4C451D1C3597E460D /* TSSearchController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6EBE84676B7F074CA423A4EBC56D400D /* TSSearchController-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5508C756ACE207C596EFED7AF70E48CB /* TSSearchController-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		701EEC34C50209AA66F9150C07DFCE25 /* Pods-TSSearchController_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F3461B493A189ACC1ABB7665FF7EC599 /* Pods-TSSearchController_Example-dummy.m */; };
 		895FAD0345B8F255C6AD484091296C95 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		8ACA1EA74C556CD7979F3E297D4C3147 /* Pods-TSSearchController_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 42DFF0E525CDAB549D8FE47D0BFFD8E6 /* Pods-TSSearchController_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8C8B27702D34464834D4FD1815FA9F90 /* TSSearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0ABAAACD40E921F357E7412C43ADF00 /* TSSearchTextField.swift */; };
+		8D72667CA7B1BA4D0E674C14A77F9CAB /* TSSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A33D8CF6290218CBA33B4655FC791D /* TSSearchBar.swift */; };
 		91A7936738A55E00493283AC9B9187F2 /* Pods-TSSearchController_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E51894B1A2D61E64BC729F1BB4B99B3D /* Pods-TSSearchController_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		956AD666F4C0DB3B1C8B2006D7CA656A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		B3F2AED325F14D2D894EBA59A33D5FD3 /* TSSearchController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D69DB71DA24CBF3CBA0CBEF87ACA00AA /* TSSearchController-dummy.m */; };
+		A66579B6BA1A764B61AD3983D2CE2C16 /* TSSearchController-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D5A6083CE7B7441250344413ACD16449 /* TSSearchController-dummy.m */; };
+		C4447E77B17951C8996EABCAD83C2BC4 /* TSSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9133337F1E2B2659232405977D2DAE6 /* TSSearchController.swift */; };
 		CBEED0AEFB71F6B0BF7076214CC70777 /* Pods-TSSearchController_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BB6DE85220964DB7C01389BAB80D9F /* Pods-TSSearchController_Tests-dummy.m */; };
+		ECF95D5B679DDEEF6ECB819F9FD11493 /* UIView+TSSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4800173EE3483639B54180FE6EC6E55E /* UIView+TSSearch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,36 +33,40 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00561B020ADA25C448815CE40CB5FB78 /* TSSearchController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = TSSearchController.modulemap; sourceTree = "<group>"; };
-		021E38D35163DE136DDDAB9279B0E73B /* Pods-TSSearchController_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-TSSearchController_Tests.modulemap"; sourceTree = "<group>"; };
-		12A4B981160FC77F4E56B6100A8BBDE6 /* TSSearchController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TSSearchController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		021E38D35163DE136DDDAB9279B0E73B /* Pods-TSSearchController_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-TSSearchController_Tests.modulemap"; sourceTree = "<group>"; };
+		12A4B981160FC77F4E56B6100A8BBDE6 /* TSSearchController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = TSSearchController.framework; path = TSSearchController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		159733E41492B5AF8E29D09773FDDDCD /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1B84565F35844ED8EA45868FE88ACE36 /* TSSearchController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TSSearchController.xcconfig; sourceTree = "<group>"; };
-		1DF5368DB5A4FD0D9E01D61BCF925FA1 /* Pods_TSSearchController_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TSSearchController_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DF5368DB5A4FD0D9E01D61BCF925FA1 /* Pods_TSSearchController_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_TSSearchController_Tests.framework; path = "Pods-TSSearchController_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		20BD7473CC34731915F0637E7020A1C9 /* Pods-TSSearchController_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TSSearchController_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		253F926D7A0043887D0541BC6D6DBA30 /* TSSearchController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TSSearchController-prefix.pch"; sourceTree = "<group>"; };
+		3DAFF9363A47AB9C400BDA4E6E66A793 /* TSSearchController.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = TSSearchController.modulemap; sourceTree = "<group>"; };
 		42DFF0E525CDAB549D8FE47D0BFFD8E6 /* Pods-TSSearchController_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TSSearchController_Tests-umbrella.h"; sourceTree = "<group>"; };
-		4565D201860842D4C451D1C3597E460D /* TSSearchController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TSSearchController-umbrella.h"; sourceTree = "<group>"; };
-		4913DAFF45B0A68E22B576727F9CB8C2 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4800173EE3483639B54180FE6EC6E55E /* UIView+TSSearch.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+TSSearch.swift"; path = "TSSearchController/Classes/UIView+TSSearch.swift"; sourceTree = "<group>"; };
+		5508C756ACE207C596EFED7AF70E48CB /* TSSearchController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TSSearchController-umbrella.h"; sourceTree = "<group>"; };
 		590066F4FD57D7EE869E9623C4C876BC /* Pods-TSSearchController_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TSSearchController_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		59275FC02E8989BEB96F41B7B23B74F4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		59796878A1DBAA37468707DEED27209F /* Pods-TSSearchController_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TSSearchController_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		6997D56C772106BFBA2CBE2ABE80EA5E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6F2D047F69014EA60D8EC45B3CFD603C /* Pods-TSSearchController_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-TSSearchController_Example.modulemap"; sourceTree = "<group>"; };
+		6F2D047F69014EA60D8EC45B3CFD603C /* Pods-TSSearchController_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-TSSearchController_Example.modulemap"; sourceTree = "<group>"; };
 		75E4760FE5DCECD16CBCE47183556E55 /* Pods-TSSearchController_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TSSearchController_Example.release.xcconfig"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A25358787C62BDBD2C5FF5834EF10A2E /* Pods-TSSearchController_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TSSearchController_Tests-resources.sh"; sourceTree = "<group>"; };
-		AA15C6E376ADCE64561E186AD5521410 /* TSSearchController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TSSearchController-prefix.pch"; sourceTree = "<group>"; };
+		B0ABAAACD40E921F357E7412C43ADF00 /* TSSearchTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TSSearchTextField.swift; path = TSSearchController/Classes/TSSearchTextField.swift; sourceTree = "<group>"; };
 		B282A28C333353B1E35193C6DA431BAE /* Pods-TSSearchController_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TSSearchController_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		BC302CF4243B64EF592845E9158A7DCA /* Pods-TSSearchController_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TSSearchController_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		BE0585E1625BEB42339C345A7A0923DC /* Pods-TSSearchController_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TSSearchController_Example-resources.sh"; sourceTree = "<group>"; };
 		CD9F566E22B8E193EA86F28D18ED7BCE /* Pods-TSSearchController_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TSSearchController_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		D4BB6DE85220964DB7C01389BAB80D9F /* Pods-TSSearchController_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TSSearchController_Tests-dummy.m"; sourceTree = "<group>"; };
-		D69DB71DA24CBF3CBA0CBEF87ACA00AA /* TSSearchController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TSSearchController-dummy.m"; sourceTree = "<group>"; };
+		D5A6083CE7B7441250344413ACD16449 /* TSSearchController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TSSearchController-dummy.m"; sourceTree = "<group>"; };
+		D7A33D8CF6290218CBA33B4655FC791D /* TSSearchBar.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TSSearchBar.swift; path = TSSearchController/Classes/TSSearchBar.swift; sourceTree = "<group>"; };
 		DB298A7E035DA654C5FF625C3C5A5A9C /* Pods-TSSearchController_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TSSearchController_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		E342F35CBD8664620A41A046E7F958F5 /* TSSearchController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TSSearchController.xcconfig; sourceTree = "<group>"; };
 		E51894B1A2D61E64BC729F1BB4B99B3D /* Pods-TSSearchController_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-TSSearchController_Example-umbrella.h"; sourceTree = "<group>"; };
 		EAC89C195B203ADB4907C7DD94D83D83 /* Pods-TSSearchController_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TSSearchController_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		F3461B493A189ACC1ABB7665FF7EC599 /* Pods-TSSearchController_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TSSearchController_Example-dummy.m"; sourceTree = "<group>"; };
-		F604C0AE5459D7C4D23084ED2ED47442 /* Pods_TSSearchController_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TSSearchController_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F604C0AE5459D7C4D23084ED2ED47442 /* Pods_TSSearchController_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_TSSearchController_Example.framework; path = "Pods-TSSearchController_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9133337F1E2B2659232405977D2DAE6 /* TSSearchController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TSSearchController.swift; path = TSSearchController/Classes/TSSearchController.swift; sourceTree = "<group>"; };
 		FA97522E9858FCC799B2AEA3BCD53A32 /* Pods-TSSearchController_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TSSearchController_Example-frameworks.sh"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,10 +98,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		004669E2E357E4290D7CFB67A9701AE1 /* TSSearchController */ = {
+		29A6BFABD9D0DAA77047AAF2A7E1FCEF /* TSSearchController */ = {
 			isa = PBXGroup;
 			children = (
-				F578DAA52F6087B81E7D9FD75BA995CD /* Support Files */,
+				D7A33D8CF6290218CBA33B4655FC791D /* TSSearchBar.swift */,
+				F9133337F1E2B2659232405977D2DAE6 /* TSSearchController.swift */,
+				B0ABAAACD40E921F357E7412C43ADF00 /* TSSearchTextField.swift */,
+				4800173EE3483639B54180FE6EC6E55E /* UIView+TSSearch.swift */,
+				661D7116AFF357DBD6F7574D829B037C /* Support Files */,
 			);
 			name = TSSearchController;
 			path = ../..;
@@ -117,19 +129,33 @@
 			path = "Target Support Files/Pods-TSSearchController_Example";
 			sourceTree = "<group>";
 		};
-		6C6FA131C46D5F832E62D610C7203274 /* Development Pods */ = {
+		524FAEC1C063505CA4FD9885897DDABC /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				004669E2E357E4290D7CFB67A9701AE1 /* TSSearchController */,
+				29A6BFABD9D0DAA77047AAF2A7E1FCEF /* TSSearchController */,
 			);
 			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		661D7116AFF357DBD6F7574D829B037C /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				59275FC02E8989BEB96F41B7B23B74F4 /* Info.plist */,
+				3DAFF9363A47AB9C400BDA4E6E66A793 /* TSSearchController.modulemap */,
+				E342F35CBD8664620A41A046E7F958F5 /* TSSearchController.xcconfig */,
+				D5A6083CE7B7441250344413ACD16449 /* TSSearchController-dummy.m */,
+				253F926D7A0043887D0541BC6D6DBA30 /* TSSearchController-prefix.pch */,
+				5508C756ACE207C596EFED7AF70E48CB /* TSSearchController-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/TSSearchController";
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				6C6FA131C46D5F832E62D610C7203274 /* Development Pods */,
+				524FAEC1C063505CA4FD9885897DDABC /* Development Pods */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
 				B2CCA9B2C30FD910BEA96255A4A23A38 /* Products */,
 				C722F4602DD23BD33C75334563CB41CD /* Targets Support Files */,
@@ -189,20 +215,6 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		F578DAA52F6087B81E7D9FD75BA995CD /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				4913DAFF45B0A68E22B576727F9CB8C2 /* Info.plist */,
-				00561B020ADA25C448815CE40CB5FB78 /* TSSearchController.modulemap */,
-				1B84565F35844ED8EA45868FE88ACE36 /* TSSearchController.xcconfig */,
-				D69DB71DA24CBF3CBA0CBEF87ACA00AA /* TSSearchController-dummy.m */,
-				AA15C6E376ADCE64561E186AD5521410 /* TSSearchController-prefix.pch */,
-				4565D201860842D4C451D1C3597E460D /* TSSearchController-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/TSSearchController";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -237,7 +249,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C284723A515F838985E72A13A1D646B1 /* Build configuration list for PBXNativeTarget "TSSearchController" */;
 			buildPhases = (
-				D7DC1BFFA9B1F9A6FCCE2B1EF65AB864 /* Sources */,
+				0509BBDBEA24E0A0925BFBCCA471EE30 /* Sources */,
 				A95D341FC6EAA36289A83EC4972F8291 /* Frameworks */,
 				F1A7ABCF47720ADCAA06C9E9D548AC13 /* Headers */,
 			);
@@ -314,6 +326,18 @@
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0509BBDBEA24E0A0925BFBCCA471EE30 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D72667CA7B1BA4D0E674C14A77F9CAB /* TSSearchBar.swift in Sources */,
+				A66579B6BA1A764B61AD3983D2CE2C16 /* TSSearchController-dummy.m in Sources */,
+				C4447E77B17951C8996EABCAD83C2BC4 /* TSSearchController.swift in Sources */,
+				8C8B27702D34464834D4FD1815FA9F90 /* TSSearchTextField.swift in Sources */,
+				ECF95D5B679DDEEF6ECB819F9FD11493 /* UIView+TSSearch.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0F42BC6328C0680EC69651FAAD354BB5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -327,14 +351,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				701EEC34C50209AA66F9150C07DFCE25 /* Pods-TSSearchController_Example-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D7DC1BFFA9B1F9A6FCCE2B1EF65AB864 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B3F2AED325F14D2D894EBA59A33D5FD3 /* TSSearchController-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,7 +462,7 @@
 		};
 		4CCC20A3C718421797A6709EDE40B92C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1B84565F35844ED8EA45868FE88ACE36 /* TSSearchController.xcconfig */;
+			baseConfigurationReference = E342F35CBD8664620A41A046E7F958F5 /* TSSearchController.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -632,7 +648,7 @@
 		};
 		E473DB8ADEAB0BC2F399B8C068D7C751 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1B84565F35844ED8EA45868FE88ACE36 /* TSSearchController.xcconfig */;
+			baseConfigurationReference = E342F35CBD8664620A41A046E7F958F5 /* TSSearchController.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
