@@ -30,10 +30,10 @@ open class TSSearchBar: UIView {
     open weak var animationer: TSSearchBarAnimationer?
     open weak var delegate: TSSearchBarDelegate?
     private lazy var backgroundImageView: UIImageView = UIImageView()
-    lazy var textFieldContentView: UIView = UIView.init(frame: CGRect.init(x: 8, y: 0, width: self.frame.width-16, height: 35))
+    var textFieldContentView: UIView!
     private lazy var textField: TSSearchTextField = {
         let temp = TSSearchTextField()
-        temp.frame = CGRect.init(x: 0, y: 0, width: self.textFieldContentView.frame.width, height: 35)
+        temp.frame = CGRect.init(x: 0, y: 0, width: self.textFieldContentView.frame.size.width, height: 35)
         temp.center = CGPoint.init(x: self.frame.width/2, y: self.frame.height/2)
         temp.layer.cornerRadius = 5
         temp.canTouch = false
@@ -82,6 +82,7 @@ open class TSSearchBar: UIView {
     override init(frame: CGRect) {
         super.init(frame: CGRect.init(x: 0, y: 0, width: kScreenW, height: 55))
         backgroundColor = TS_RGB(230, 230, 230)
+        textFieldContentView = UIView.init(frame: CGRect.init(x: 8, y: 0, width: self.frame.size.width-16, height: 35))
         addSubview(textFieldContentView)
         textFieldContentView.backgroundColor = .white
         textFieldContentView.layer.cornerRadius = 5
