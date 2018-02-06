@@ -46,7 +46,7 @@ open class TSSearchController: UIViewController {
     public weak var searchResultsUpdater: TSSearchControllerhResultsUpdating?
     public var searchResultsController: UIViewController?
     var searchContentView: UIView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: kScreenW, height: kNaviBarStatusBarHeight))
-    lazy var bgView: UIView = {
+    lazy var bgView: UIVisualEffectView = {
         
         let effectView = UIVisualEffectView.init(effect: UIBlurEffect.init(style: .light))
         effectView.frame = CGRect.init(x: 0, y: kNaviBarStatusBarHeight, width: kScreenW, height: kScreenH-kNaviBarStatusBarHeight)
@@ -67,7 +67,7 @@ open class TSSearchController: UIViewController {
         view.addSubview(bgView)
         self.searchResultsController?.view.frame = bgView.bounds
         if let vc = searchResultsController {
-            bgView.addSubview(vc.view)
+            bgView.contentView.addSubview(vc.view)
         }
         // Do any additional setup after loading the view.
     }
@@ -80,12 +80,12 @@ open class TSSearchController: UIViewController {
             self.searchSuperView = searchBar.superview
             self.beginFrame = searchBar.convert(searchBar.bounds, to: nil)
             self.frameInSuperView = searchBar.frame
+            
         }
         
         self.delegate?.willPresentSearchController?(searchController: self)
         if self.hidesNavigationBarDuringPresentation{
-            
-             UIApplication.shared.keyWindow?.rootViewController?.view.addSubview(view)
+            UIApplication.shared.keyWindow?.addSubview(view)
         }
         if let parentVC = self.searchBar.ts_viewController?.parent, parentVC.isKind(of: UINavigationController.self),hidesNavigationBarDuringPresentation{
             navi = parentVC as? UINavigationController
@@ -96,8 +96,8 @@ open class TSSearchController: UIViewController {
         searchContentView.backgroundColor = searchBar.backgroundColor
         self.searchContentView.alpha = 1
         UIView.animate(withDuration: 0.25, animations: {
-             self.bgView.alpha = 1
-             if self.hidesNavigationBarDuringPresentation{
+            self.bgView.alpha = 1
+            if self.hidesNavigationBarDuringPresentation{
                 self.searchBar.frame = CGRect.init(x: 0, y: kNaviBarStatusBarHeight-44, width: kScreenW, height: 44)
                 self.searchBar.textFieldContentView.ts_width = self.searchBar.frame.width-16-50
                 self.searchBar.cancelButton?.ts_x = kScreenW-50
@@ -105,7 +105,7 @@ open class TSSearchController: UIViewController {
             self.delegate?.didPresentSearchController?(searchController: self)
         })
         searchBar.isEditing = true
-       
+        
         
     }
     
@@ -123,7 +123,7 @@ open class TSSearchController: UIViewController {
         UIView.animate(withDuration: 0.2, animations: {
             self.bgView.alpha = 0
             self.searchContentView.alpha = 0
-             self.delegate?.didDismissSearchController?(searchController: self)
+            self.delegate?.didDismissSearchController?(searchController: self)
             
             if self.hidesNavigationBarDuringPresentation, self.beginFrame != nil{
                 self.searchBar.frame = self.beginFrame!
@@ -144,7 +144,7 @@ open class TSSearchController: UIViewController {
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-   
+    
     
 }
 
