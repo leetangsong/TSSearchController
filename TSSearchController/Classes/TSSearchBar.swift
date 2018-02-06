@@ -33,8 +33,8 @@ open class TSSearchBar: UIView {
     lazy var textFieldContentView: UIView = UIView.init(frame: CGRect.init(x: 8, y: 0, width: frame.width-16, height: 35))
     private lazy var textField: TSSearchTextField = {
         let temp = TSSearchTextField()
-        temp.frame = CGRect.init(x: 0, y: 0, width: textFieldContentView.frame.width, height: 35)
-        temp.center = CGPoint.init(x: frame.width/2, y: frame.height/2)
+        temp.frame = CGRect.init(x: 0, y: 0, width: self.textFieldContentView.frame.width, height: 35)
+        temp.center = CGPoint.init(x: self.frame.width/2, y: self.frame.height/2)
         temp.layer.cornerRadius = 5
         temp.canTouch = false
         temp.clearButtonMode = .whileEditing
@@ -49,18 +49,18 @@ open class TSSearchBar: UIView {
     var RightViewMode: UITextFieldViewMode = .never
     var rightView: UIView?{
         willSet{
-            rightView?.removeFromSuperview()
+            self.rightView?.removeFromSuperview()
         }
         didSet{
-            setupTextContentFrame()
+            self.setupTextContentFrame()
         }
     }
     var leftView: UIView?{
         willSet{
-            leftView?.removeFromSuperview()
+            self.leftView?.removeFromSuperview()
         }
         didSet{
-            setupTextContentFrame()
+            self.setupTextContentFrame()
         }
     }
     
@@ -69,10 +69,10 @@ open class TSSearchBar: UIView {
     var cancelAction: (()->Void)?
     var isEditing = false{
         didSet{
-            cancelButton?.isHidden = !isEditing
-            textField.canTouch = isEditing
-          _ = isEditing ? textField.becomeFirstResponder() : textField.resignFirstResponder()
-            isEditing ? animationer?.searchBarDidBeginEditingAnimation?(searchBar: self) : animationer?.searchBarDidEndEditingAnimation?(searchBar: self)
+            self.cancelButton?.isHidden = !isEditing
+            self.textField.canTouch = isEditing
+          _ = self.isEditing ? self.textField.becomeFirstResponder() : self.textField.resignFirstResponder()
+            isEditing ? self.animationer?.searchBarDidBeginEditingAnimation?(searchBar: self) : self.animationer?.searchBarDidEndEditingAnimation?(searchBar: self)
             if !isEditing {
                 self.textField.text = ""
                 self.text = ""
@@ -156,13 +156,13 @@ open class TSSearchBar: UIView {
     
     open override var frame: CGRect{
         didSet{
-            textFieldContentView.frame = CGRect.init(x: 8, y: 0, width: frame.width-16, height: 35)
-            textFieldContentView.center = CGPoint.init(x: frame.width/2, y: frame.height/2)
-            if !isEditing{
-                cancelButton?.frame = CGRect.init(x: frame.width, y: 0, width: 40, height: 44)
-                cancelButton?.center = CGPoint.init(x: cancelButton!.center.x, y: self.frame.height/2)
+            self.textFieldContentView.frame = CGRect.init(x: 8, y: 0, width: frame.width-16, height: 35)
+            self.textFieldContentView.center = CGPoint.init(x: frame.width/2, y: frame.height/2)
+            if !self.isEditing{
+                self.cancelButton?.frame = CGRect.init(x: frame.width, y: 0, width: 40, height: 44)
+                self.cancelButton?.center = CGPoint.init(x: cancelButton!.center.x, y: self.frame.height/2)
             }
-            setupTextContentFrame()
+            self.setupTextContentFrame()
         }
     }
     @objc func cancelButtonClick(){
