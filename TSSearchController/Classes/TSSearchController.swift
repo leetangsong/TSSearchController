@@ -28,6 +28,7 @@ public protocol TSSearchControllerhResultsUpdating: NSObjectProtocol {
 }
 open class TSSearchController: UIViewController {
     public var hidesNavigationBarDuringPresentation: Bool = true
+    public var isShow: Bool = false
     public lazy var searchBar: TSSearchBar = {
         let temp = TSSearchBar()
         temp.frame = CGRect.init(x: 0, y: kStatusBarHeight+55, width: kScreenW, height: 55)
@@ -44,10 +45,10 @@ open class TSSearchController: UIViewController {
     }()
     private var beginFrame: CGRect?
     private var frameInSuperView:CGRect?
-    private var searchSuperView: UIView?
+    private weak var searchSuperView: UIView?
     public weak var delegate: TSSearchControllerDelegate?
     public weak var searchResultsUpdater: TSSearchControllerhResultsUpdating?
-    public var searchResultsController: UIViewController?
+    public  private(set) weak var searchResultsController: UIViewController?
     var searchContentView: UIView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: kScreenW, height: kStatusBarHeight+55))
     lazy var bgView: UIVisualEffectView = {
         
@@ -60,9 +61,13 @@ open class TSSearchController: UIViewController {
     }()
     public init(searchResultsController: UIViewController?) {
         super.init(nibName: nil, bundle: nil)
+        if searchResultsController != nil{
+            self.addChildViewController(searchResultsController!)
+        }
+        
         self.searchResultsController = searchResultsController
     }
-    var navi: UINavigationController?
+    weak var navi: UINavigationController?
     override open func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(searchContentView)
@@ -79,21 +84,27 @@ open class TSSearchController: UIViewController {
         if self.searchBar.isEditing{
             return
         }
+        isShow = true
         if self.searchSuperView == nil {
             self.searchSuperView = searchBar.superview
             self.beginFrame = searchBar.convert(searchBar.bounds, to: nil)
             self.frameInSuperView = searchBar.frame
-            
         }
-        
         self.delegate?.willPresentSearchController?(searchController: self)
         
         if let parentVC = self.searchBar.ts_viewController?.parent, parentVC.isKind(of: UINavigationController.self),hidesNavigationBarDuringPresentation{
             navi = parentVC as? UINavigationController
             navi?.topViewController?.view.addSubview(self.view)
+            
+            if navi?.topViewController?.childViewControllers.contains(self) == false{
+                navi?.topViewController?.addChildViewController(self)
+            }
             navi?.setNavigationBarHidden(true, animated: true)
         }else if let parentVC = self.searchBar.ts_viewController{
             parentVC.view.addSubview(self.view)
+            if parentVC.childViewControllers.contains(self) == false{
+                parentVC.addChildViewController(self)
+            }
         }
         view.addSubview(searchBar)
         searchBar.frame = self.beginFrame!
@@ -115,6 +126,7 @@ open class TSSearchController: UIViewController {
     }
     
     public func endSearch(){
+        isShow = false
         self.delegate?.willDismissSearchController?(searchController: self)
         self.searchBar.isEditing = false
         navi?.setNavigationBarHidden(false, animated: true)
