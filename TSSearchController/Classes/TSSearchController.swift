@@ -114,7 +114,7 @@ open class TSSearchController: UIViewController {
         
     }
     
-    func endSearch(){
+    public func endSearch(){
         self.delegate?.willDismissSearchController?(searchController: self)
         self.searchBar.isEditing = false
         navi?.setNavigationBarHidden(false, animated: true)

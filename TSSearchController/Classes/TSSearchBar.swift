@@ -47,8 +47,20 @@ let kScreenH = UIScreen.main.bounds.size.height
         temp.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         return temp
     }()
-    open var leftViewMode: UITextFieldViewMode = .never
-    open var rightViewMode: UITextFieldViewMode = .never
+    open var leftViewMode: UITextFieldViewMode = .never{
+        didSet{
+            if leftViewMode != oldValue{
+                self.setupTextContentFrame()
+            }
+        }
+    }
+    open var rightViewMode: UITextFieldViewMode = .never{
+        didSet{
+            if rightViewMode != oldValue{
+                self.setupTextContentFrame()
+            }
+        }
+    }
     open var rightView: UIView?{
         willSet{
             self.rightView?.removeFromSuperview()
@@ -73,7 +85,7 @@ let kScreenH = UIScreen.main.bounds.size.height
         didSet{
             self.cancelButton?.isHidden = !isEditing
             self.textField.canTouch = isEditing
-          _ = self.isEditing ? self.textField.becomeFirstResponder() : self.textField.resignFirstResponder()
+            _ = self.isEditing ? self.textField.becomeFirstResponder() : self.textField.resignFirstResponder()
             isEditing ? self.animationer?.searchBarDidBeginEditingAnimation?(searchBar: self) : self.animationer?.searchBarDidEndEditingAnimation?(searchBar: self)
             if !isEditing {
                 self.textField.text = ""
@@ -121,7 +133,7 @@ let kScreenH = UIScreen.main.bounds.size.height
         rightView?.ts_x = textFieldContentView.frame.width-(rightView?.frame.width ?? 0)
         leftView?.center = CGPoint.init(x: leftView?.center.x ?? 0, y: textFieldContentView.frame.height/2)
         rightView?.center = CGPoint.init(x: rightView?.center.x ?? 0, y: textFieldContentView.frame.height/2)
-       
+        
         switch leftViewMode {
         case .always:
             leftView?.isHidden = false
@@ -204,7 +216,7 @@ extension TSSearchBar: UITextFieldDelegate{
         setupTextContentFrame()
         animationer?.searchBarDidBeginEditingAnimation?(searchBar: self)
     }
-
+    
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.searchReturnAction?(textField.text)
         return true
@@ -213,6 +225,6 @@ extension TSSearchBar: UITextFieldDelegate{
         delegate?.searchBarTextDidEndEditing?(searchBar: self)
         setupTextContentFrame()
         animationer?.searchBarDidEndEditingAnimation?(searchBar: self)
-
+        
     }
 }
