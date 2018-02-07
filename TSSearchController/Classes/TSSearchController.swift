@@ -60,7 +60,6 @@ open class TSSearchController: UIViewController {
     }()
     public init(searchResultsController: UIViewController?) {
         super.init(nibName: nil, bundle: nil)
-        
         self.searchResultsController = searchResultsController
     }
     var navi: UINavigationController?
@@ -88,12 +87,13 @@ open class TSSearchController: UIViewController {
         }
         
         self.delegate?.willPresentSearchController?(searchController: self)
-        if self.hidesNavigationBarDuringPresentation{
-            UIApplication.shared.keyWindow?.addSubview(view)
-        }
+        
         if let parentVC = self.searchBar.ts_viewController?.parent, parentVC.isKind(of: UINavigationController.self),hidesNavigationBarDuringPresentation{
             navi = parentVC as? UINavigationController
+            navi?.topViewController?.view.addSubview(self.view)
             navi?.setNavigationBarHidden(true, animated: true)
+        }else if let parentVC = self.searchBar.ts_viewController{
+            parentVC.view.addSubview(self.view)
         }
         view.addSubview(searchBar)
         searchBar.frame = self.beginFrame!
