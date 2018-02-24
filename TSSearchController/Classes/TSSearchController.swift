@@ -23,8 +23,9 @@ fileprivate var kiPhoneX: Bool{
     @objc optional func willDismissSearchController(searchController: TSSearchController)
     @objc optional func didDismissSearchController(searchController: TSSearchController)
 }
-public protocol TSSearchControllerhResultsUpdating: NSObjectProtocol {
+@objc public protocol TSSearchControllerhResultsUpdating: NSObjectProtocol {
     func updateSearchResultsForSearchController(searchController: TSSearchController)
+    @objc optional func updateSearchResultsTextChangeForSearchController(searchController: TSSearchController)
 }
 open class TSSearchController: UIViewController {
     public var hidesNavigationBarDuringPresentation: Bool = true
@@ -153,7 +154,7 @@ open class TSSearchController: UIViewController {
     }
     
     override open func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        
+       self.searchResultsUpdater?.updateSearchResultsTextChangeForSearchController?(searchController: self)
     }
     deinit {
         self.searchBar.removeObserver(self, forKeyPath: "text")
