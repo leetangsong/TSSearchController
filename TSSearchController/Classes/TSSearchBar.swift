@@ -26,7 +26,7 @@ let kScreenH = UIScreen.main.bounds.size.height
 }
 @objcMembers open class TSSearchBar: UIView {
     open var placeholder: String?
-    open var text: String?
+    open dynamic var text: String?
     open weak var animationer: TSSearchBarAnimationer?
     open weak var delegate: TSSearchBarDelegate?
     open var barTintColor: UIColor = TS_RGB(230, 230, 230)
